@@ -1,4 +1,27 @@
 main {
+
+    .search_bar {
+        text-align: center;
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+        input {
+            width: 50vw;
+            height: 25px;
+            padding-left: 26px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: black;
+        }
+
+        .search_icon {
+            position: absolute;
+            top: 4.5px;
+            left: 6px;
+            width: 16px;
+        }
+    }
+
     .slider_container {
         .first_row {
             width: 90vw;

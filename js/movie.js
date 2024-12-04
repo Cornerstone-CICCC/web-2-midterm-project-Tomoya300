@@ -48,15 +48,18 @@ modalButton.forEach((button) => {
     const overlay = document.createElement("div")
     const modal = document.createElement("div")
     const modalRight = document.createElement("div")
-    const closeModal = document.createElement("p")
+    const closeModal = document.createElement("div")
+    const closeIcon = document.createElement("p")
     
     overlay.className = "overlay"
     modal.className = "modal"
     modalRight.className = "modal_right"
     closeModal.className = "close_modal"
-    closeModal.innerHTML = "&#x2715;"
+    closeIcon.className = "close_icon"
+    closeIcon.innerHTML = "&#10006;"
 
     modalRight.append(modalTitle, modalDes)
+    closeModal.appendChild(closeIcon)
     modal.append(modalImage, modalRight, closeModal)
     overlay.appendChild(modal)
     document.body.appendChild(overlay)

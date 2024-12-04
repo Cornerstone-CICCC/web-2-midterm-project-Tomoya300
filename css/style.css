@@ -17,6 +17,26 @@ header nav ul li {
   list-style: none;
 }
 
+main .search_bar {
+  text-align: center;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+main .search_bar input {
+  width: 50vw;
+  height: 25px;
+  padding-left: 26px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: black;
+}
+main .search_bar .search_icon {
+  position: absolute;
+  top: 4.5px;
+  left: 6px;
+  width: 16px;
+}
 main .slider_container .first_row {
   width: 90vw;
   margin: 5% auto;
@@ -103,7 +123,6 @@ body .modal {
   width: 100%;
   background-color: #000000;
   position: relative;
-  color: white;
 }
 body .close_modal {
   position: absolute;
@@ -111,7 +130,14 @@ body .close_modal {
   right: 6px;
   background-color: transparent;
   cursor: pointer;
-  font-size: 24px;
+  margin: 0;
+  width: 40px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+}
+body .close_modal .close_icon {
+  font-size: 30px;
   margin: 0;
 }
 body .close_modal:hover {
