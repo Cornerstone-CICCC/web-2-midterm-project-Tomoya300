@@ -1,0 +1,72 @@
+main {
+    .slider_container {
+        .first_row {
+            width: 90vw;
+            margin: 5% auto;
+
+            .movie_slider {
+                display: flex;
+                overflow: scroll;
+                column-gap: 5%;
+
+                &::-webkit-scrollbar {
+                    width: 100%;
+                    height: 3px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #585858;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: #000000;
+                }
+
+                .movie_card {
+                    width: 220px;
+                    padding-bottom: 1%;
+
+                    .movie_image {
+                        object-fit: cover;
+                        height: 330px;
+                    }
+
+                    .movie_title {
+                        font-size: 22px;
+                        font-weight: 550;
+                        font-family: 'Times New Roman', Times, serif;
+                        margin: 0;
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .movie_des {
+                        margin: 3% 0 0 0;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4;
+                        line-clamp: 4;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-family: 'Times New Roman', Times, serif;
+                    }
+
+                    .modal_button {
+                        margin: 0;
+                        text-align: right;
+                        text-decoration: underline;
+                        font-family: 'Times New Roman', Times, serif;
+                        cursor: pointer;
+                        color: white;
+
+                        &:hover {
+                            color: skyblue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

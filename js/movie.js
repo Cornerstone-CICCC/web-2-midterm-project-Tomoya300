@@ -8,14 +8,77 @@ const options = {
   
   fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(res => {
+
+      const movieImage = document.querySelectorAll(".movie_image")
+      const movieTitle = document.querySelectorAll(".movie_title")
+      const movieDes = document.querySelectorAll(".movie_des")
+
+      movieImage.forEach((image, index) => {
+          const imageLink = res.results[index].poster_path
+          image.setAttribute("src", `https://image.tmdb.org/t/p/w300${imageLink}`)
+      })
+
+      movieTitle.forEach((title, index) => {
+        title.textContent = res.results[index].title
+      })
+
+      movieDes.forEach((des, index) => {
+        des.textContent = res.results[index].overview
+      })
+
+      console.log(res)
+    
+    })
     .catch(err => console.error(err));
 
-const movieImage = document.querySelectorAll(".movie_image")
-const movieTitle = document.querySelectorAll(".movie_title")
-const movieDes = document.querySelectorAll(".movie_description")
+const modalButton = document.querySelectorAll(".modal_button")
+modalButton.forEach((button) => {
+  button.addEventListener("click", function() {
+    console.log("button clicked")
+    const prevOverlay = document.querySelector(".overlay")
+    if (prevOverlay) {
+      prevOverlay.remove()
+    }
+    
+    const modalImage = this.parentElement.querySelector(".movie_image").cloneNode()
+    const modalTitle = this.parentElement.querySelector(".movie_title").cloneNode(true)
+    const modalDes = this.parentElement.querySelector(".movie_des").cloneNode(true)
 
-movieImage.forEach((index, image) => {
-    const imageLink = res.results[index].poster_path
-    image.setAttribute("src", `${imageLink}`)
+    const overlay = document.createElement("div")
+    const modal = document.createElement("div")
+    const modalRight = document.createElement("div")
+    const closeModal = document.createElement("p")
+    
+    overlay.className = "overlay"
+    modal.className = "modal"
+    modalRight.className = "modal_right"
+    closeModal.className = "close_modal"
+    closeModal.innerHTML = "&#x2715;"
+
+    modalRight.append(modalTitle, modalDes)
+    modal.append(modalImage, modalRight, closeModal)
+    overlay.appendChild(modal)
+    document.body.appendChild(overlay)
+
+    closeModal.addEventListener("click", function() {
+      overlay.remove()
+    })
+    
+  })
+
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".modal")) {
+      document.querySelector(".overlay").remove()
+    }
+  })
+
+
+  document.querySelectorAll(".modal_button").forEach((element) => {
+    element.addEventListener("click", function(e) {
+      e.stopPropagation()
+    })
+  })
 })
+
+
