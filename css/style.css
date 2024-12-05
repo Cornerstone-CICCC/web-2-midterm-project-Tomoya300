@@ -83,6 +83,11 @@ main .slider .slider_row .slider_container .slider_card .media_des {
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: "Times New Roman", Times, serif;
+  position: relative;
+  background: linear-gradient(to bottom, transparent 40%, rgba(255, 255, 255, 0.3));
+}
+main .slider .slider_row .slider_container .slider_card .media_genre {
+  display: none;
 }
 main .slider .slider_row .slider_container .slider_card .modal_button {
   margin: 0;
@@ -94,6 +99,14 @@ main .slider .slider_row .slider_container .slider_card .modal_button {
 }
 main .slider .slider_row .slider_container .slider_card .modal_button:hover {
   color: skyblue;
+}
+main .slider .slider_row .show_more_container {
+  width: 100%;
+}
+main .slider .slider_row .show_more_container .show_more_button {
+  text-align: right;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 * {

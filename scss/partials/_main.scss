@@ -74,6 +74,23 @@ main {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         font-family: 'Times New Roman', Times, serif;
+                        position: relative;
+                        background: linear-gradient(to bottom, transparent 40% , rgba(#ffffff,0.3));
+
+                        // &::before {
+                        //     content: "";
+                        //     position: absolute;
+                        //     bottom: 0;
+                        //     left: 0;
+                        //     width: 100%;
+                        //     height: 30%;
+                        //     background-color: white;
+                        //     opacity: 0.3;
+                        // }
+                    }
+
+                    .media_genre {
+                        display: none;
                     }
 
                     .modal_button {
@@ -88,6 +105,17 @@ main {
                             color: skyblue;
                         }
                     }
+                }
+            }
+
+            .show_more_container {
+                width: 100%;
+
+                .show_more_button {
+                    text-align: right;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    // font-size: 14px;
                 }
             }
         }
