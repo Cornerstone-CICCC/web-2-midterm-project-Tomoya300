@@ -10,7 +10,7 @@ main {
             height: 25px;
             padding-left: 26px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 15px;
             background-color: black;
         }
 
@@ -22,12 +22,12 @@ main {
         }
     }
 
-    .slider_container {
-        .first_row {
+    .slider {
+        .slider_row {
             width: 90vw;
             margin: 5% auto;
 
-            .movie_slider {
+            .slider_container {
                 display: flex;
                 overflow: scroll;
                 column-gap: 5%;
@@ -45,16 +45,16 @@ main {
                     background: #000000;
                 }
 
-                .movie_card {
+                .slider_card {
                     width: 220px;
                     padding-bottom: 1%;
 
-                    .movie_image {
+                    .media_image {
                         object-fit: cover;
                         height: 330px;
                     }
 
-                    .movie_title {
+                    .media_title {
                         font-size: 22px;
                         font-weight: 550;
                         font-family: 'Times New Roman', Times, serif;
@@ -65,7 +65,7 @@ main {
                         text-overflow: ellipsis;
                     }
 
-                    .movie_des {
+                    .media_des {
                         margin: 3% 0 0 0;
                         display: -webkit-box;
                         -webkit-line-clamp: 4;
