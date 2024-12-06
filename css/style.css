@@ -62,7 +62,8 @@ main .slider .slider_row .slider_container .slider_card {
 }
 main .slider .slider_row .slider_container .slider_card .media_image {
   object-fit: cover;
-  height: 330px;
+  max-height: 330px;
+  pointer-events: none;
 }
 main .slider .slider_row .slider_container .slider_card .media_title {
   font-size: 22px;
@@ -84,7 +85,16 @@ main .slider .slider_row .slider_container .slider_card .media_des {
   text-overflow: ellipsis;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  background: linear-gradient(to bottom, transparent 40%, rgba(255, 255, 255, 0.3));
+}
+main .slider .slider_row .slider_container .slider_card .media_des::before {
+  content: "";
+  text-align: end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 70%, black);
 }
 main .slider .slider_row .slider_container .slider_card .media_genre {
   display: none;
@@ -109,16 +119,7 @@ main .slider .slider_row .show_more_container .show_more_button {
   cursor: pointer;
 }
 
-* {
-  box-sizing: border-box;
-  color: white;
-}
-
-body {
-  margin: 0;
-  background-color: #000000;
-}
-body .overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -128,16 +129,22 @@ body .overlay {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 }
-body .modal {
+.overlay .modal {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  max-width: 70vw;
-  width: 100%;
+  width: 750px;
   background-color: #000000;
   position: relative;
 }
-body .close_modal {
+.overlay .modal .modal_right {
+  padding: 20px;
+}
+.overlay .modal .modal_right .modal_title {
+  font-size: 28px;
+  margin-bottom: 0;
+}
+.overlay .modal .close_modal {
   position: absolute;
   top: 0;
   right: 6px;
@@ -149,12 +156,50 @@ body .close_modal {
   display: flex;
   justify-content: center;
 }
-body .close_modal .close_icon {
+.overlay .modal .close_modal .close_icon {
   font-size: 30px;
   margin: 0;
 }
-body .close_modal:hover {
+.overlay .modal .close_modal:hover {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media screen and (max-width: 750px) {
+  .overlay .modal {
+    flex-direction: column;
+    width: 65vw;
+    height: 90%;
+    overflow: scroll;
+  }
+  .overlay .modal::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+  }
+  .overlay .modal::-webkit-scrollbar-thumb {
+    background: #585858;
+  }
+  .overlay .modal::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  .overlay .modal .modal_image {
+    width: 100%;
+    object-fit: cover;
+  }
+  .overlay .modal .modal_right {
+    padding-top: 0;
+  }
+  .overlay .modal .modal_right .modal_title {
+    margin-top: 0;
+  }
+}
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
 }
 
 /*# sourceMappingURL=style.css.map */

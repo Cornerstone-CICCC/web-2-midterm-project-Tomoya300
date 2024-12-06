@@ -1,6 +1,7 @@
 @import "partials/footer";
 @import "partials/header";
 @import "partials/main";
+@import "partials/modal";
 
 * {
     box-sizing: border-box;
@@ -10,47 +11,4 @@
 body {
     margin: 0;
     background-color: #000000;  
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: grid;
-        place-items: center;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,.8);
-      }
-      
-      .modal {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        max-width: 70vw;
-        width: 100%;
-        background-color: #000000;
-        position: relative;
-      }
-
-      .close_modal {
-        position: absolute;
-        top: 0;
-        right: 6px;
-        background-color: transparent;
-        cursor: pointer;
-        margin: 0;
-        width: 40px;
-        height: 43px;
-        display: flex;
-        justify-content: center;
-
-        .close_icon {
-          font-size: 30px;
-          margin: 0;
-        }
-
-        &:hover {
-          background-color: rgba($color: #ffffff, $alpha: 0.4);
-        }
-      }
 }
