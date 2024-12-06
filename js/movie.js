@@ -22,7 +22,11 @@ const movie = {
       })
 
       movieTitle.forEach((title, index) => {
-        title.textContent = popMovie[index].title
+        const rank = document.createElement("span")
+        rank.className = "rank"
+        rank.textContent = `${index+1}`
+        title.appendChild(rank)
+        title.appendChild(document.createTextNode(`${popMovie[index].title}`))
       })
 
       movieDes.forEach((des, index) => {
@@ -59,7 +63,11 @@ fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', tv)
     })
 
     tvTitle.forEach((title, index) => {
-      title.textContent = popTv[index].name
+      const rank = document.createElement("span")
+      rank.className = "rank"
+      rank.textContent = `${index+1}`
+      title.appendChild(rank)
+      title.appendChild(document.createTextNode(`${popTv[index].name}`))
     })
 
     tvDes.forEach((des, index) => {
@@ -180,82 +188,72 @@ fetch('https://api.themoviedb.org/3/genre/tv/list?language=en', genresTv)
     })
   })
 
-  const sliders = document.querySelectorAll('.slider_container'); 
-  const images = document.querySelectorAll('.media_image'); 
-  let startX, scrollLeft, scrollSpeed = 0, lastX, lastTime;
+  const sliders = document.querySelectorAll(".slider_container")
+  const images = document.querySelectorAll(".media_image")
+  let isMouseDown = false
+  let startX, scrollLeft, scrollSpeed = 0, lastX, lastTime
   
   sliders.forEach(scrollContainer => {
-    scrollContainer.addEventListener('mousedown', (e) => {
-      isMouseDown = true;
-      startX = e.pageX - scrollContainer.offsetLeft;
-      scrollLeft = scrollContainer.scrollLeft;
-      lastX = e.pageX;
-      lastTime = Date.now();
-      scrollSpeed = 0; 
-      scrollContainer.style.cursor = 'grabbing'; 
-
-      scrollContainer.style.userSelect = 'none'; 
-      
-      images.forEach(image => {
-        image.style.pointerEvents = 'none';
-      });
-    });
-  
-    scrollContainer.addEventListener('mouseleave', () => {
-      isMouseDown = false;
-      scrollContainer.style.cursor = 'grab';
-      scrollContainer.style.userSelect = 'auto'; 
+    scrollContainer.addEventListener("mousedown", (e) => {
+      isMouseDown = true
+      startX = e.pageX - scrollContainer.offsetLeft
+      scrollLeft = scrollContainer.scrollLeft
+      lastX = e.pageX
+      lastTime = Date.now()
+      scrollSpeed = 0
+      scrollContainer.style.userSelect = "none"
 
       images.forEach(image => {
-        image.style.pointerEvents = 'auto';
-      });
+        image.style.pointerEvents = "none"
+      })
+    })
 
-      inertia(scrollContainer);
-    });
-
-    scrollContainer.addEventListener('mouseup', () => {
-      isMouseDown = false;
-      scrollContainer.style.cursor = 'grab';
-      scrollContainer.style.userSelect = 'auto';  
+    scrollContainer.addEventListener("mouseleave", () => {
+      isMouseDown = false
+      scrollContainer.style.userSelect = "auto"
 
       images.forEach(image => {
-        image.style.pointerEvents = 'auto';
-      });
+        image.style.pointerEvents = "auto"
+      })
 
-      inertia(scrollContainer);
-    });
+      inertia(scrollContainer)
+    })
 
-    scrollContainer.addEventListener('mousemove', (e) => {
-      if (!isMouseDown) return;
-      e.preventDefault();
-      const x = e.pageX - scrollContainer.offsetLeft;
-      const walk = (x - startX) * 2;
-      scrollContainer.scrollLeft = scrollLeft - walk;
+    scrollContainer.addEventListener("mouseup", () => {
+      isMouseDown = false
+      scrollContainer.style.userSelect = "auto"
 
-      const now = Date.now();
-      const timeDelta = now - lastTime; 
-      const distance = e.pageX - lastX;
-      scrollSpeed = distance / timeDelta;
-      lastX = e.pageX;
-      lastTime = now; 
-    });
+      images.forEach(image => {
+        image.style.pointerEvents = "auto"
+      })
 
-    scrollContainer.addEventListener('mouseover', (e) => {
-      if (!isMouseDown && e.target && e.target.nodeType === Node.TEXT_NODE) {
-        scrollContainer.style.userSelect = 'text';
-      } else {
-        scrollContainer.style.userSelect = 'none';
-      }
-    });
-  });
+      inertia(scrollContainer)
+    })
+
+    scrollContainer.addEventListener("mousemove", (e) => {
+      if (!isMouseDown) return
+      e.preventDefault()
+      const x = e.pageX - scrollContainer.offsetLeft
+      const walk = (x - startX) * 2
+      scrollContainer.scrollLeft = scrollLeft - walk
+
+      const now = Date.now()
+      const timeDelta = now - lastTime
+      const distance = e.pageX - lastX
+      scrollSpeed = distance / timeDelta
+      lastX = e.pageX
+      lastTime = now
+    })
+  })
 
   function inertia(scrollContainer) {
     if (Math.abs(scrollSpeed) > 0.1) {
-      scrollContainer.scrollLeft -= scrollSpeed * 10;
-      scrollSpeed *= 0.95; 
-      requestAnimationFrame(() => inertia(scrollContainer));
+      scrollContainer.scrollLeft -= scrollSpeed * 10
+      scrollSpeed *= 0.95
+      requestAnimationFrame(() => inertia(scrollContainer))
     }
   }
+  
   
 
 
@@ -263,7 +261,7 @@ fetch('https://api.themoviedb.org/3/genre/tv/list?language=en', genresTv)
 
 
   // const searchMedia = {
-  //   method: 'GET',
+  //   method: "GET",
   //   headers: {
   //     accept: 'application/json',
   //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MTdiNThiODQ1YTY5ZTdlY2IyNmY0OTgxNWZiOTI3MiIsIm5iZiI6MTczMzE2NTAyNi40LCJzdWIiOiI2NzRkZmZlMjU2MmIwMzBiYjVhZGU3MzMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.487BTYd3V5PDtBLIy3XD93cJQdQog7VbivKSEwVf7dk'
