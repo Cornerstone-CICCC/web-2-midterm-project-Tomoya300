@@ -17,13 +17,13 @@ header nav ul li {
   list-style: none;
 }
 
-main .search_bar {
+main .search_container {
   text-align: center;
   position: relative;
   width: fit-content;
   margin: 0 auto;
 }
-main .search_bar input {
+main .search_container input {
   width: 50vw;
   height: 25px;
   padding-left: 26px;
@@ -31,15 +31,28 @@ main .search_bar input {
   border-radius: 15px;
   background-color: black;
 }
-main .search_bar .search_icon {
+main .search_container .search_icon {
   position: absolute;
   top: 4.5px;
   left: 6px;
   width: 16px;
 }
+main .search_container .search_button {
+  background-color: #000000;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 25px;
+}
+main .slider h2 {
+  text-align: center;
+  font-size: 32px;
+}
 main .slider .slider_row {
   width: 90vw;
   margin: 5% auto;
+}
+main .slider .slider_row .slider_title {
+  font-size: 24px;
 }
 main .slider .slider_row .slider_container {
   display: flex;

@@ -1,10 +1,11 @@
 main {
 
-    .search_bar {
+    .search_container {
         text-align: center;
         position: relative;
         width: fit-content;
         margin: 0 auto;
+        
         input {
             width: 50vw;
             height: 25px;
@@ -20,12 +21,27 @@ main {
             left: 6px;
             width: 16px;
         }
+
+        .search_button {
+            background-color: #000000;
+            border: 1px solid white;
+            border-radius: 10px;
+            height: 25px;
+        }
     }
 
     .slider {
+        h2 {
+            text-align: center;
+            font-size: 32px;
+        }
         .slider_row {
             width: 90vw;
             margin: 5% auto;
+            
+            .slider_title {
+                font-size: 24px;
+            }
 
             .slider_container {
                 display: flex;
@@ -80,10 +96,6 @@ main {
                         text-overflow: ellipsis;
                         font-family: 'Times New Roman', Times, serif;
                         position: relative;
-                        // background: linear-gradient(to top, transparent, rgba(#ffffff, 1));
-                        // -webkit-text-fill-color: transparent;
-                        // -webkit-background-clip: text;
-                        // background-clip: text;
 
                         &::before {
                             content: "";
@@ -123,7 +135,6 @@ main {
                     text-align: right;
                     text-decoration: underline;
                     cursor: pointer;
-                    // font-size: 14px;
                 }
             }
         }
