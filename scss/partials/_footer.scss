@@ -1,0 +1,37 @@
+footer {
+    // height: 50vh;
+    .white_footer {
+        background-color: beige;
+    }
+
+    .dark_footer {
+        background-color: black;
+        color: white;
+    }
+
+    .logo_container {
+        text-align: center;
+        .footer_logo {
+            width: 100px;
+        }
+    }
+
+    .title_container {
+        height: 100%;
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    .copyright {
+        font-size: 14px;
+        font-weight: 100;
+        text-align: center;
+    }
+}

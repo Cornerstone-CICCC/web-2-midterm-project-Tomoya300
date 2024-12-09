@@ -8,16 +8,38 @@
     height: 100vh;
     background-color: rgba(0,0,0,.8);
 
+    .white_modal {
+        background-color: white;
+        color: black;
+    }
+
+    .dark_modal {
+        background-color: #000000;
+        color: white;
+    }
+
     .modal {
         display: flex;
         flex-direction: row;
         gap: 1rem;
         width: 750px;
-        background-color: #000000;
+        max-height: 80vh;
+        // background-color: white;
+        // color: white;
         position: relative;
 
         .modal_right {
             padding: 20px;
+            overflow: scroll;
+
+            &::-webkit-scrollbar {
+                width: 3px;
+                height: 0px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #585858;
+            }
 
             .modal_title {
                 font-size: 28px;
@@ -54,8 +76,9 @@
         .modal {
             flex-direction: column;
             width: 65vw;
-            height: 90%;
+            height: 100%;
             overflow: scroll;
+            gap: 0;
 
             &::-webkit-scrollbar {
                 width: 3px;
@@ -71,8 +94,12 @@
             }
             
             .modal_image {
+                margin: 0 auto;
                 width: 100%;
                 object-fit: cover;
+                object-position: top;
+                max-height: 300px;
+                // max-width: 300px;
             }
 
             .modal_right {

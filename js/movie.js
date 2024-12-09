@@ -141,57 +141,32 @@ fetch('https://api.themoviedb.org/3/genre/tv/list?language=en', genresTv)
   })
   .catch(err => console.error(err));
 
-  const modalButton = document.querySelectorAll(".modal_button")
-  modalButton.forEach((button) => {
-    button.addEventListener("click", function() {
-      console.log("button clicked")
-      const prevOverlay = document.querySelector(".overlay")
-      if (prevOverlay) {
-        prevOverlay.remove()
-      }
-      const modalImage = this.parentElement.querySelector(".media_image").cloneNode()
-      const modalTitle = this.parentElement.querySelector(".media_title").cloneNode(true)
-      const modalDes = this.parentElement.querySelector(".media_des").cloneNode(true)
-      const modalGenre = this.parentElement.querySelector(".genre_name").cloneNode(true)
 
-      modalTitle.classList.add("modal_title")
-      modalImage.classList.add("modal_image")
+const moonContainer = document.querySelector(".moon_container")
+const allEl = document.querySelectorAll("*")
+const styleSheet = document.styleSheets[0]
+const modal = document.querySelectorAll(".modal")
+const h1 = document.querySelector("h1")
+const headerMenu = document.querySelector(".header_menu")
+const footer = document.querySelector("footer")
 
-      modalGenre.classList.remove("media_genre")
-  
-      const overlay = document.createElement("div")
-      const modal = document.createElement("div")
-      const modalRight = document.createElement("div")
-      const closeModal = document.createElement("div")
-      const closeIcon = document.createElement("p")
-      
-      overlay.className = "overlay"
-      modal.className = "modal"
-      modalRight.className = "modal_right"
-      closeModal.className = "close_modal"
-      closeIcon.className = "close_icon"
-      closeIcon.innerHTML = "&#10006;"
-  
-      modalRight.append(modalTitle, modalDes, modalGenre)
-      closeModal.appendChild(closeIcon)
-      modal.append(modalImage, modalRight, closeModal)
-      overlay.appendChild(modal)
-      document.body.appendChild(overlay)
-  
-      closeModal.addEventListener("click", function() {
-        overlay.remove()
-      })
-    })
-  
-    document.addEventListener("click", function(e) {
-      if (document.querySelector(".overlay") && !e.target.closest(".modal")) {
-        document.querySelector(".overlay").remove()
-      }
-    })
-  
-    document.querySelectorAll(".modal_button").forEach((element) => {
-      element.addEventListener("click", function(e) {
-        e.stopPropagation()
-      })
-    })
-  })
+moonContainer.addEventListener("click", function() {
+  document.body.classList.toggle("dark_mode")
+  if (document.body.classList.contains("dark_mode")) {
+    document.body.style.backgroundColor = "black"
+    document.body.style.color = "white"
+    h1.classList.add("dark")
+    headerMenu.classList.add("dark")
+    footer.classList.add("dark_footer")
+    footer.classList.remove("white_footer")
+    searchInput.classList.add("dark")
+  } else {
+    document.body.style.backgroundColor = "white"
+    document.body.style.color = "black"
+    h1.classList.remove("dark")
+    headerMenu.classList.remove("dark")
+    footer.classList.add("white_footer")
+    footer.classList.remove("dark_footer")
+    searchInput.classList.remove("dark")
+  }
+})

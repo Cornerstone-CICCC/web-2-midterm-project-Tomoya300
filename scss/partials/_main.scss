@@ -2,39 +2,142 @@ main {
 
     .search_container {
         text-align: center;
-        position: relative;
         width: fit-content;
         margin: 0 auto;
-        
-        input {
-            width: 50vw;
-            height: 25px;
-            padding-left: 26px;
-            border: 1px solid #ccc;
-            border-radius: 15px;
-            background-color: black;
+
+        .search_bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            border: 0.5px solid rgba($color: #ffffff, $alpha: 0.2);
+            border-radius: 25px;
+            margin: 0 auto;
+
+            .dark {
+                background-color: #000000;
+            }
+
+            .search_input {
+                width: 50vw;
+                height: 35px;
+                padding-left: 15px;
+                border: 1px solid rgba($color: #000000, $alpha: 0.5);
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+                outline: none;
+
+                &:focus {
+                    border: 1.5px solid rgba($color: #9f9f9f, $alpha: 1);
+                }
+            }
+    
+            .search_icon {
+                position: absolute;
+                top: 50%;
+                right: 4px;
+                transform: translate(-50%, -50%);
+                width: 22px;
+                z-index: -1;
+            }
+
+            .hover_cover {
+                background-color: transparent;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                cursor: pointer;
+                width: 50px;
+                height: 35px;
+                border: 1px solid rgba($color: #000000, $alpha: 0.5);
+                border-left: none;
+
+                &:hover {
+                    background-color: rgba($color: #cccccc, $alpha: 0.3);
+                }
+            }
         }
 
-        .search_icon {
-            position: absolute;
-            top: 4.5px;
-            left: 6px;
-            width: 16px;
-        }
+        .search_result {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            column-gap: 3rem;
+            row-gap: 4rem;
+            margin: 5% 5vw;
 
-        .search_button {
-            background-color: #000000;
-            border: 1px solid white;
-            border-radius: 10px;
-            height: 25px;
+            .result_card {
+                padding-bottom: 1%;
+
+                .result_image {
+                    object-fit: cover;
+                    max-width: 260px;
+                }
+
+                .result_title {
+                    font-size: 22px;
+                    font-weight: 550;
+                    font-family: 'Times New Roman', Times, serif;
+                    text-align: left;
+                    margin: 0 0 5px 0;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .result_des {
+                    margin: 0;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    font-family: 'Times New Roman', Times, serif;
+                    position: relative;
+
+                    // &::before {
+                    //     content: "";
+                    //     text-align: end;
+                    //     position: absolute;
+                    //     bottom: 0;
+                    //     right: 0;
+                    //     width: 100%;
+                    //     height: 100%;
+                    //     background: linear-gradient(to bottom, transparent 70%, rgba(#000000, 1))
+                    // }
+                }
+
+                .result_genre {
+                    display: none;
+                }
+
+                .modal_button {
+                    margin: 0;
+                    text-align: right;
+                    text-decoration: underline;
+                    font-family: 'Times New Roman', Times, serif;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: skyblue;
+                    }
+                }
+            }
         }
     }
 
+    .hide {
+        display: none;
+    }
+
     .slider {
+
         h2 {
             text-align: center;
             font-size: 32px;
         }
+
         .slider_row {
             width: 90vw;
             margin: 5% auto;
@@ -55,10 +158,6 @@ main {
 
                 &::-webkit-scrollbar-thumb {
                     background: #585858;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: #000000;
                 }
 
                 .slider_card {
@@ -96,17 +195,22 @@ main {
                         text-overflow: ellipsis;
                         font-family: 'Times New Roman', Times, serif;
                         position: relative;
+                        // -webkit-text-fill-color: black;
+                        // -webkit-background-clip: text;
+                        // background-clip: text;
+                        // background: linear-gradient(to bottom, transparent, rgba(25, 255, 255, 1));
+                        // // background-color: black;
 
-                        &::before {
-                            content: "";
-                            text-align: end;
-                            position: absolute;
-                            bottom: 0;
-                            right: 0;
-                            width: 100%;
-                            height: 100%;
-                            background: linear-gradient(to bottom, transparent 70%, rgba(#000000, 1))
-                        }
+                        // &::before {
+                        //     content: "";
+                        //     text-align: end;
+                        //     position: absolute;
+                        //     bottom: 0;
+                        //     right: 0;
+                        //     width: 100%;
+                        //     height: 100%;
+                        //     background: linear-gradient(to bottom, transparent 70%, rgba(255, 255, 255, 1));
+                        // }
                     }
 
                     .media_genre {
@@ -119,22 +223,12 @@ main {
                         text-decoration: underline;
                         font-family: 'Times New Roman', Times, serif;
                         cursor: pointer;
-                        color: white;
+                        // color: white;
 
                         &:hover {
                             color: skyblue;
                         }
                     }
-                }
-            }
-
-            .show_more_container {
-                width: 100%;
-
-                .show_more_button {
-                    text-align: right;
-                    text-decoration: underline;
-                    cursor: pointer;
                 }
             }
         }

@@ -1,25 +1,99 @@
 header {
-    .top_line {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
 
-        #home {
-            order: -1;
+    a {
+        &:visited {
+            color: inherit;
         }
     }
-    a {
-        text-decoration: none;
-    }
 
-    nav {
-        ul {
+    .top_line {
+        margin: 5% 0;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .menu {
+            font-size: 20px;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .desktop {
+            margin-right: 30px;
+        }
+
+        .home {
+            order: -1;
+        }
+
+        .dark {
+            color: white;
+        }
+
+        h1 {
+
+            a {
+                display: flex;
+                align-items: center;
+                // justify-content: center;
+            }
+    
+            
+
+            .dark {
+                color: white;
+            }
+
+        }
+
+        .moon_container {
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-evenly;
-
-            li {
-                list-style: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            right: 30px;
+            cursor: pointer;
+            
+            .moon {
+                width: 20px;
             }
         }
     }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    header {
+        .top_line {
+            flex-direction: column;
+
+            .home {
+                order: 0;
+                margin-bottom: 20px;
+            }
+            .mobile {
+                display: block;
+            }
+            .desktop {
+                display: none;
+            }
+        }
+    }
+
 }

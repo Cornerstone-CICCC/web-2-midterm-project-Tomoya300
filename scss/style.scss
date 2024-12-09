@@ -5,10 +5,18 @@
 
 * {
     box-sizing: border-box;
-    color: white;
+    // color: white;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    background-color: #000000;  
+    
+    // .dark_mode {
+    //     background-color: black;
+    //     color: white;
+    // }
 }
