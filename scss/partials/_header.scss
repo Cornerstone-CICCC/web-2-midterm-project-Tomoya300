@@ -1,25 +1,76 @@
 header {
-    .top_line {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+    background-color: var(--header-bg-color);
+    height: 30vh;
+    margin-bottom: 5%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
-        #home {
-            order: -1;
+    a {
+        &:visited {
+            color: inherit;
         }
     }
-    a {
+
+    .header_menu {
         text-decoration: none;
+        font-size: 20px;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
-    nav {
-        ul {
+    .web_title {
+        text-decoration: none;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 70px;
+        margin-right: 10px;
+    }
+
+    .responsive_menu {
+        display: none;
+    }
+
+    .moon {
+        width: 30px;
+        height: 30px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        fill: var(--moon-bg);
+        transition: all 0.3s ease;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    header {
+        flex-direction: column;
+
+        .web_title {
+            font-size: 26px;
+        }
+
+        .logo {
+            width: 40px;
+        }
+
+        .desktop_menu {
+            display: none;
+        }
+
+        .responsive_menu {
             display: flex;
             justify-content: space-evenly;
-
-            li {
-                list-style: none;
-            }
+            width: 100%;
         }
     }
 }
