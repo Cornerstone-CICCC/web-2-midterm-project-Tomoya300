@@ -8,25 +8,14 @@
     height: 100vh;
     background-color: rgba(0,0,0,.8);
 
-    .white_modal {
-        background-color: white;
-        color: black;
-    }
-
-    .dark_modal {
-        background-color: #000000;
-        color: white;
-    }
-
     .modal {
         display: flex;
         flex-direction: row;
         gap: 1rem;
         width: 750px;
         max-height: 80vh;
-        // background-color: white;
-        // color: white;
         position: relative;
+        background-color: var(--bg-color);
 
         .modal_right {
             padding: 20px;
@@ -99,7 +88,6 @@
                 object-fit: cover;
                 object-position: top;
                 max-height: 300px;
-                // max-width: 300px;
             }
 
             .modal_right {

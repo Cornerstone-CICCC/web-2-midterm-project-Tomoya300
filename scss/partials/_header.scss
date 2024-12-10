@@ -1,4 +1,12 @@
 header {
+    background-color: var(--header-bg-color);
+    height: 30vh;
+    margin-bottom: 5%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
     a {
         &:visited {
@@ -6,94 +14,63 @@ header {
         }
     }
 
-    .top_line {
-        margin: 5% 0;
-        text-align: center;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+    .header_menu {
+        text-decoration: none;
+        font-size: 20px;
 
-        .menu {
-            font-size: 20px;
-        }
-
-        .logo {
-            width: 100px;
-        }
-
-        .mobile {
-            display: none;
-        }
-
-        .desktop {
-            margin-right: 30px;
-        }
-
-        .home {
-            order: -1;
-        }
-
-        .dark {
-            color: white;
-        }
-
-        h1 {
-
-            a {
-                display: flex;
-                align-items: center;
-                // justify-content: center;
-            }
-    
-            
-
-            .dark {
-                color: white;
-            }
-
-        }
-
-        .moon_container {
-            background-color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 0px;
-            right: 30px;
-            cursor: pointer;
-            
-            .moon {
-                width: 20px;
-            }
+        &:hover {
+            text-decoration: underline;
         }
     }
 
-    a {
+    .web_title {
         text-decoration: none;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 70px;
+        margin-right: 10px;
+    }
+
+    .responsive_menu {
+        display: none;
+    }
+
+    .moon {
+        width: 30px;
+        height: 30px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        fill: var(--moon-bg);
+        transition: all 0.3s ease;
     }
 }
 
 @media screen and (max-width: 680px) {
     header {
-        .top_line {
-            flex-direction: column;
+        flex-direction: column;
 
-            .home {
-                order: 0;
-                margin-bottom: 20px;
-            }
-            .mobile {
-                display: block;
-            }
-            .desktop {
-                display: none;
-            }
+        .web_title {
+            font-size: 26px;
+        }
+
+        .logo {
+            width: 40px;
+        }
+
+        .desktop_menu {
+            display: none;
+        }
+
+        .responsive_menu {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
         }
     }
-
 }

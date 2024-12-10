@@ -5,7 +5,7 @@
 
 * {
     box-sizing: border-box;
-    // color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 html {
@@ -14,9 +14,26 @@ html {
 
 body {
     margin: 0;
-    
-    // .dark_mode {
-    //     background-color: black;
-    //     color: white;
-    // }
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+
+    &.dark_mode {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --moon-bg: yellow;
+        --button-text: white;
+        --gradient-color: rgba(255, 255, 255, 1);
+        --header-bg-color: rgb(82, 82, 82);
+    }
+}
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --moon-bg: rgb(52, 51, 51);
+    --button-text: black;
+    --gradient-color: rgba(0, 0, 0, 1);
+    --header-bg-color: lightgray;
 }

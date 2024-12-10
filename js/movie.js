@@ -141,32 +141,8 @@ fetch('https://api.themoviedb.org/3/genre/tv/list?language=en', genresTv)
   })
   .catch(err => console.error(err));
 
+const moon = document.querySelector(".moon")
 
-const moonContainer = document.querySelector(".moon_container")
-const allEl = document.querySelectorAll("*")
-const styleSheet = document.styleSheets[0]
-const modal = document.querySelectorAll(".modal")
-const h1 = document.querySelector("h1")
-const headerMenu = document.querySelector(".header_menu")
-const footer = document.querySelector("footer")
-
-moonContainer.addEventListener("click", function() {
+moon.addEventListener("click", function() {
   document.body.classList.toggle("dark_mode")
-  if (document.body.classList.contains("dark_mode")) {
-    document.body.style.backgroundColor = "black"
-    document.body.style.color = "white"
-    h1.classList.add("dark")
-    headerMenu.classList.add("dark")
-    footer.classList.add("dark_footer")
-    footer.classList.remove("white_footer")
-    searchInput.classList.add("dark")
-  } else {
-    document.body.style.backgroundColor = "white"
-    document.body.style.color = "black"
-    h1.classList.remove("dark")
-    headerMenu.classList.remove("dark")
-    footer.classList.add("white_footer")
-    footer.classList.remove("dark_footer")
-    searchInput.classList.remove("dark")
-  }
 })
