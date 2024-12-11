@@ -23,6 +23,7 @@ main {
                 border-bottom-left-radius: 25px;
                 outline: none;
                 background-color: var(--bg-color);
+                color: var(--text-color);
 
                 &:focus {
                     border: 1.5px solid rgba($color: #9f9f9f, $alpha: 1);
@@ -123,7 +124,7 @@ main {
 
     .slider {
 
-        h2 {
+        .main_heading {
             text-align: center;
             font-size: 32px;
         }
@@ -208,18 +209,50 @@ main {
                     }
 
                     .modal_button {
-                        margin: 0;
+                        margin: 0 0 0 auto;
                         text-align: right;
                         text-decoration: underline;
                         font-family: 'Times New Roman', Times, serif;
                         cursor: pointer;
-                        // color: white;
+                        width: fit-content;
 
                         &:hover {
                             color: skyblue;
                         }
                     }
                 }
+            }
+        }
+    }
+
+    &.about_main {
+        height: 60vh;
+        
+        .about_container {
+            width: 60vw;
+            margin: 0 auto;
+
+            .about_title {
+                margin-top: 0;
+                margin-bottom: 40px;
+            }
+    
+            .about_des {
+                font-size: 18px;
+                line-height: 2;
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:680px) {
+    main {
+
+        &.about_main {
+            .about_container {
+                width: 80vw;
             }
         }
     }

@@ -1,13 +1,7 @@
 footer {
   background-color: var(--header-bg-color);
-  padding-top: 5%;
+  padding-top: 2%;
   padding-bottom: 1px;
-}
-footer .logo_container {
-  text-align: center;
-}
-footer .logo_container .footer_logo {
-  width: 100px;
 }
 footer .footer_menu {
   font-size: 20px;
@@ -29,6 +23,12 @@ footer .title_container .footer_title {
   font-size: 24px;
   margin-top: 10px;
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+footer .title_container .footer_title .footer_logo {
+  width: 50px;
+  margin-right: 10px;
 }
 footer .title_container .footer_mobile_menu {
   display: none;
@@ -37,6 +37,7 @@ footer .copyright {
   font-size: 12px;
   font-weight: 100;
   text-align: center;
+  margin-top: 4%;
 }
 
 @media screen and (max-width: 680px) {
@@ -55,7 +56,7 @@ footer .copyright {
 }
 header {
   background-color: var(--header-bg-color);
-  height: 30vh;
+  height: 25vh;
   margin-bottom: 5%;
   text-align: center;
   position: relative;
@@ -80,7 +81,7 @@ header .web_title {
   align-items: center;
 }
 header .logo {
-  width: 70px;
+  width: 60px;
   margin-right: 10px;
 }
 header .responsive_menu {
@@ -139,6 +140,7 @@ main .search_container .search_bar .search_input {
   border-bottom-left-radius: 25px;
   outline: none;
   background-color: var(--bg-color);
+  color: var(--text-color);
 }
 main .search_container .search_bar .search_input:focus {
   border: 1.5px solid #9f9f9f;
@@ -221,7 +223,7 @@ main .search_container .search_result .result_card .modal_button:hover {
 main .hide {
   display: none;
 }
-main .slider h2 {
+main .slider .main_heading {
   text-align: center;
   font-size: 32px;
 }
@@ -285,16 +287,39 @@ main .slider .slider_row .slider_container .slider_card .media_genre {
   display: none;
 }
 main .slider .slider_row .slider_container .slider_card .modal_button {
-  margin: 0;
+  margin: 0 0 0 auto;
   text-align: right;
   text-decoration: underline;
   font-family: "Times New Roman", Times, serif;
   cursor: pointer;
+  width: fit-content;
 }
 main .slider .slider_row .slider_container .slider_card .modal_button:hover {
   color: skyblue;
 }
+main.about_main {
+  height: 60vh;
+}
+main.about_main .about_container {
+  width: 60vw;
+  margin: 0 auto;
+}
+main.about_main .about_container .about_title {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+main.about_main .about_container .about_des {
+  font-size: 18px;
+  line-height: 2;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
+@media screen and (max-width: 680px) {
+  main.about_main .about_container {
+    width: 80vw;
+  }
+}
 .overlay {
   position: fixed;
   top: 0;
@@ -328,6 +353,9 @@ main .slider .slider_row .slider_container .slider_card .modal_button:hover {
 .overlay .modal .modal_right .modal_title {
   font-size: 28px;
   margin-bottom: 0;
+}
+.overlay .modal .modal_right .modal_des {
+  line-height: 1.5;
 }
 .overlay .modal .close_modal {
   position: absolute;

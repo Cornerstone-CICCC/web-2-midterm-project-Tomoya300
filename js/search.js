@@ -128,6 +128,7 @@ document.addEventListener("click", function (e) {
             overlay.className = "overlay"
             modal.className = "modal"
             modalRight.className = "modal_right"
+            modalDes.classList.add("modal_des")
             closeModal.className = "close_modal"
             closeIcon.className = "close_icon"
             closeIcon.innerHTML = "&#10006;"
