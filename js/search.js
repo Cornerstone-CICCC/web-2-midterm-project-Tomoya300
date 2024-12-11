@@ -4,7 +4,7 @@ const searchResult = document.querySelector(".search_result")
 
 let genreMap = new Map()
 
-function fetchGenres() {
+function fetchG() {
   const genreApi = {
     method: "GET",
     headers: {
@@ -84,7 +84,7 @@ function showResult(results) {
         <h5 class="result_title">${title} (${mediaType})</h5>
         <img src="${medImage}" alt="${title}" class="result_image">
         <p class="result_des">${des}</p>
-        <p class="result_genre genre_name">Genre: ${genreText}</p>
+        <p class="result_genre media_genre">Genre: ${genreText}</p>
         <p class="modal_button">see more</p>
         `
 
@@ -92,10 +92,11 @@ function showResult(results) {
 
     const slider = document.querySelector(".slider")
     slider.classList.add("hide")
+    searchResult.classList.add("search_result_margin")
   })
 }
 
-fetchGenres()
+fetchG()
 
 document.addEventListener("click", function (e) {
     const overlay = document.querySelector(".overlay")
@@ -111,7 +112,7 @@ document.addEventListener("click", function (e) {
             const modalImage = resultCard.querySelector(".result_image, .media_image").cloneNode()
             const modalTitle = resultCard.querySelector(".result_title, .media_title").cloneNode(true)
             const modalDes = resultCard.querySelector(".result_des, .media_des").cloneNode(true)
-            const modalGenre = resultCard.querySelector(".genre_name").cloneNode(true)
+            const modalGenre = resultCard.querySelector(".media_genre").cloneNode(true)
             const spans = modalTitle.querySelectorAll("span")
             spans.forEach(span => span.remove())
 
@@ -128,6 +129,7 @@ document.addEventListener("click", function (e) {
             overlay.className = "overlay"
             modal.className = "modal"
             modalRight.className = "modal_right"
+            modalDes.classList.add("modal_des")
             closeModal.className = "close_modal"
             closeIcon.className = "close_icon"
             closeIcon.innerHTML = "&#10006;"
@@ -145,6 +147,8 @@ document.addEventListener("click", function (e) {
             modal.append(modalImage, modalRight, closeModal)
             overlay.appendChild(modal)
             document.body.appendChild(overlay)
+
+            console.log("button clicked")
 
             closeModal.addEventListener("click", function () {
                 overlay.remove()

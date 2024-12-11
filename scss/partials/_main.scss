@@ -2,7 +2,7 @@ main {
 
     .search_container {
         text-align: center;
-        width: fit-content;
+        // width: fit-content;
         margin: 0 auto;
 
         .search_bar {
@@ -23,6 +23,7 @@ main {
                 border-bottom-left-radius: 25px;
                 outline: none;
                 background-color: var(--bg-color);
+                color: var(--text-color);
 
                 &:focus {
                     border: 1.5px solid rgba($color: #9f9f9f, $alpha: 1);
@@ -59,14 +60,23 @@ main {
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             column-gap: 3rem;
             row-gap: 4rem;
-            margin: 5% 5vw;
+            width: 100%;
+            padding: 0 5vw;
+            place-items: center;
+
+            &.search_result_margin {
+                margin: 5% 0;
+            }
 
             .result_card {
                 padding-bottom: 1%;
+                width: 100%;
+                max-width: 300px;
 
                 .result_image {
                     object-fit: cover;
-                    max-width: 260px;
+                    // max-width: 260px;
+                    width: 100%;
                 }
 
                 .result_title {
@@ -82,6 +92,7 @@ main {
                 }
 
                 .result_des {
+                    width: 100%;
                     margin: 0;
                     display: -webkit-box;
                     -webkit-line-clamp: 4;
@@ -123,7 +134,7 @@ main {
 
     .slider {
 
-        h2 {
+        .main_heading {
             text-align: center;
             font-size: 32px;
         }
@@ -208,18 +219,49 @@ main {
                     }
 
                     .modal_button {
-                        margin: 0;
+                        margin: 0 0 0 auto;
                         text-align: right;
                         text-decoration: underline;
                         font-family: 'Times New Roman', Times, serif;
                         cursor: pointer;
-                        // color: white;
+                        width: fit-content;
 
                         &:hover {
                             color: skyblue;
                         }
                     }
                 }
+            }
+        }
+    }
+
+    &.about_main {
+        height: 60vh;
+        
+        .about_container {
+            width: 60vw;
+            margin: 0 auto;
+
+            .about_title {
+                margin-top: 0;
+                margin-bottom: 40px;
+            }
+    
+            .about_des {
+                font-size: 18px;
+                line-height: 2;
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:680px) {
+    main {
+        &.about_main {
+            .about_container {
+                width: 80vw;
             }
         }
     }
