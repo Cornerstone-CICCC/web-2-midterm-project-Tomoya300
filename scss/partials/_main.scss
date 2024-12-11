@@ -2,7 +2,7 @@ main {
 
     .search_container {
         text-align: center;
-        width: fit-content;
+        // width: fit-content;
         margin: 0 auto;
 
         .search_bar {
@@ -60,14 +60,23 @@ main {
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             column-gap: 3rem;
             row-gap: 4rem;
-            margin: 5% 5vw;
+            width: 100%;
+            padding: 0 5vw;
+            place-items: center;
+
+            &.search_result_margin {
+                margin: 5% 0;
+            }
 
             .result_card {
                 padding-bottom: 1%;
+                width: 100%;
+                max-width: 300px;
 
                 .result_image {
                     object-fit: cover;
-                    max-width: 260px;
+                    // max-width: 260px;
+                    width: 100%;
                 }
 
                 .result_title {
@@ -83,6 +92,7 @@ main {
                 }
 
                 .result_des {
+                    width: 100%;
                     margin: 0;
                     display: -webkit-box;
                     -webkit-line-clamp: 4;
@@ -249,7 +259,6 @@ main {
 
 @media screen and (max-width:680px) {
     main {
-
         &.about_main {
             .about_container {
                 width: 80vw;

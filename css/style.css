@@ -119,7 +119,6 @@ header .moon {
 }
 main .search_container {
   text-align: center;
-  width: fit-content;
   margin: 0 auto;
 }
 main .search_container .search_bar {
@@ -171,14 +170,21 @@ main .search_container .search_result {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   column-gap: 3rem;
   row-gap: 4rem;
-  margin: 5% 5vw;
+  width: 100%;
+  padding: 0 5vw;
+  place-items: center;
+}
+main .search_container .search_result.search_result_margin {
+  margin: 5% 0;
 }
 main .search_container .search_result .result_card {
   padding-bottom: 1%;
+  width: 100%;
+  max-width: 300px;
 }
 main .search_container .search_result .result_card .result_image {
   object-fit: cover;
-  max-width: 260px;
+  width: 100%;
 }
 main .search_container .search_result .result_card .result_title {
   font-size: 22px;
@@ -192,6 +198,7 @@ main .search_container .search_result .result_card .result_title {
   text-overflow: ellipsis;
 }
 main .search_container .search_result .result_card .result_des {
+  width: 100%;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -341,7 +348,6 @@ main.about_main .about_container .about_des {
 }
 .overlay .modal .modal_right {
   padding: 20px;
-  overflow: scroll;
 }
 .overlay .modal .modal_right::-webkit-scrollbar {
   width: 3px;
